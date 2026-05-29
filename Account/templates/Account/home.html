@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lumora — Simple</title>
+  <link rel="stylesheet" href="{% static 'css/externalLink.css' %}">
+  <meta name="description" content="Lumora Hotel — simple recreated layout">
+  <style>
+    /* small local adjustments to ensure readable text over background */
+    a{color:inherit}
+  </style>
+  <link rel="icon" type="image/png" href="{% static 'image/logo/icebear.png' %}">
+</head>
+<body>
+    <section>
+        <header class="header">
+            <div class="header__logo">
+                <img src="{% static 'image/logo/icebear.png' %}" alt="Lumora logo">
+            </div>
+        
+            <nav class="header__nav">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="{% url 'login' %}" class="nav-link">login</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </header>
+    
+    <section class="hero">
+        <div class="overlay">
+            <p class="kicker">WELCOME <p class="kicker"> TO </p></p><h1 class="hero__title"><span class="hero-brand">Lumora</span></h1></p>
+            <p class="lead">“Simplify your stock, streamline operations, and manage your inventory with confidence.”</p>
+            <br><br>
+            <p><a class="btn1" href="#Register">Register Now</a></p>
+        </div>
+    </section></section>
+
+    <main>
+        <section id="about" class="section about" >
+            <div class="card">
+                <h2>About Lumora</h2>
+                <p>Nestled at the edge of untouched wilderness, Lamuro Hotel is a serene escape where nature and comfort meet. Designed for those who seek tranquility away from the noise of city life, Lamuro offers a unique blend of rustic charm and refined hospitality. Surrounded by lush forests, winding trails, and fresh mountain air, our hotel invites guests to reconnect with the natural world. Whether you're here to unwind, explore, or simply breathe deeper, Lamuro is your place to slow down and savor the moment.</p>
+            </div>
+            <div class="card">
+                <img src="{% static 'image/descrip.jpg' %}" alt="Lumora surroundings">
+            </div>
+        </section>
+
+        <section  id="Register" class="section book" style=" background-color:#4A4033;">
+            <p style="color:white">
+            <h2 style="color:white">Early Bird Offer – Book Early & Save Big!</h2>
+            <p style="color:white">Reserve your stay at Lamora in advance and unlock exclusive savings. Enjoy up to 20% off when you book at least 30 days before your arrival.</p>
+            </p>
+            <div style="align-items: center; justify-content: center; display: flex;">
+                <button class="btn" >Register Now</button>
+            </div>        
+        </section>
+        <section id="services" class="section services">
+            <h2>Services</h2>
+            <div class="grid">
+                <article class="service">
+                    <img src="{% static 'image/24hoursservice.jpg' %}" alt="24 Hours Service">
+                    <h3>Inventory Tracking</h3>
+                </article><article class="service">
+                    <img src="{% static 'image/DailyHousekeeping.jpg' %}" alt="Daily Housekeeping">
+                    <h3>Stock Alerts &amp; Notifications</h3>
+                </article><article class="service">
+                    <img src="{% static 'image/FineDiningRestaurant&Lounge.jpg' %}" alt="Fine Dining Restaurant & Lounge">
+                    <h3>Supplier Management</h3>
+                </article>
+            </div><br><div class="grid">
+                <article class="service">
+                    <img src="{% static 'image/Spa&wellness.jpg' %}" alt="Spa & wellness">
+                    <h3>Product Management</h3>
+                </article><article class="service">
+                    <img src="{% static 'image/StudioRoom.jpg' %}" alt="Studio Room">
+                    <h3>Reporting &amp; Analytics</h3>
+                </article><article class="service">
+                    <img src="{% static 'image/wifiServes.jpg' %}" alt="wifi Serves">
+                    <h3>Secure User Access</h3>
+                </article>
+            </div>
+        </section>
+    </main>
+        <section id="contact" class="section contact">
+            <h2>Contact</h2>
+            <p>Email: info@lumora.com</p>
+            <p>Number: 9808617323</p>
+        </section>
+</body></html>

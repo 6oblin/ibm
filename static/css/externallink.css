@@ -1,0 +1,362 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Times New Roman", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(to right, #877558, #f1c899);
+  background-clip: text;              /* Standard property */
+      padding-top: 80px; /* or equal to your header height + HR height */
+
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 2%;
+  background: #4A4033;
+  color: beige;
+      position: fixed;          /* keeps it at the top while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;            /* ensures it’s above all content */
+}
+
+.header__logo img {
+  height: 50px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header__logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px #4A90E2) drop-shadow(0 0 12px #4A90E2);
+  cursor: pointer;
+}
+.header__nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover {
+  text-decoration: line-through;
+  opacity: 0.7;
+  color: beige;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  background-image: url(../image/wallpaper/icebear.jpg);
+  background-size: 100% 100%; /* Width: auto, Height: 100% */
+  background-repeat: no-repeat;
+  background-position: center top;
+  min-height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left-center;
+  margin-top: -150px;
+  padding: 20px;
+}
+
+.kicker {
+  letter-spacing: 5px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color:#C3B59B;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 32px;
+  color:#C3B59B;
+  letter-spacing: 7px;
+  text-align: center;
+  font-style: bold;
+}
+.hero__title :hover {
+  background: linear-gradient(to right, #877558, #f1c899);
+  background-clip: text;              /* Standard property */
+  -webkit-background-clip: text;      /* Chrome/Safari */
+  color: transparent;                 /* Standard way */
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  opacity: 0.8 ;
+  font-style: italic ;
+  
+}
+
+.hero-brand {
+  color:#e7c899;
+}
+
+.lead {
+  max-width: 600px;
+  margin: 15px auto 25px;
+  font-size: 16px;
+  color: #C3B59B;
+  text-align: center;
+  font-style: italic ;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #C3B59B;
+  color: #E0D8CC;
+  font-size: 18px;
+  font-style: italic;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 5%;          /* space from bottom */
+  left: 50%;
+  transform: translateX(-50%);  /* center horizontally */
+
+}
+.btn1 {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #C3B59B;
+  color: #E0D8CC;
+  font-size: 18px;
+  font-style: italic;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 5%;          /* space from bottom */
+  left: 50%;
+  transform: translateX(-50%);  /* center horizontally */
+}
+
+
+.btn:hover {
+  color: black;
+}
+.btn1:hover {
+
+  color: black;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.section {
+  padding: 90px 8%;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-style: italic;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: right;
+  min-width: 280px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.service {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s ease;
+  
+}
+
+.service img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.service h3 {
+  padding: 15px;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   GALLERY
+========================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+    text-align: center;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+.contact {
+  text-align: center;
+}
+
+.contact a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  justify-content: center;
+  text-align: center;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .about {
+    flex-direction: column;
+  }
+
+  .hero__title {
+    font-size: 38px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   FORM SECTION LAYOUT
+========================= */
+.foam {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 60px 8%;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   FORM STYLING
+========================= */
+form {
+  display: flex;  
+  flex-direction: column;
+    gap: 15px;
+  width: 50%;
+  max-width: 400px;
+}
+
+form label {
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+}
+form img{
+    width: 50%;
+}
+.overlay{
+	background-color: #4A4033;
+	padding:20px;
+	border-radius:40px;
+	width: 30%;
+  	position: absolute;
+  	bottom: 15%;
+  	left: 1%;
+  	width: 30%;
+}
+    .hero__title{color:#fff;margin:0 0 8px}
+    .hero__tag{color:rgba(255,255,255,0.9)}
