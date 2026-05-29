@@ -4,8 +4,11 @@
     <title>Register</title>
     <style>
         body { font-family: Arial; background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh;}
-        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
-        input { display: block; margin: 10px 0; padding: 8px; width: 100%; box-sizing: border-box; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 320px;}
+        /* Added select here so the dropdown matches your input boxes perfectly */
+        input, select { display: block; margin: 10px 0; padding: 8px; width: 100%; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;}
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;}
+        button:hover { background: #0056b3; }
         .error { color: red; }
         .messages { list-style: none; padding: 0; }
         .messages li { margin: 10px 0; padding: 10px; border-radius: 4px; }
@@ -29,6 +32,18 @@
     <form method="POST">
         {% csrf_token %}
         <input type="text" name="username" placeholder="Username" required>
+        
+        <input type="email" name="email" placeholder="Email Address" required>
+        
+        <select name="role" required>
+            <option value="" disabled selected>Select Your Role</option>
+            <!-- <option value="ADMIN">Admin</option> -->
+            <option value="OWNER">Business Owner</option>
+            <option value="MANAGER">Manager</option>
+            <option value="EMPLOYEE">Employee</option>
+            <option value="CUSTOMER">Customer</option>
+        </select>
+
         <input type="password" name="password1" placeholder="Password" required>
         <input type="password" name="password2" placeholder="Confirm Password" required>
         <button type="submit">Register</button>

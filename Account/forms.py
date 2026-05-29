@@ -5,14 +5,26 @@ from .models import User, Item
 
 
 class UserRegistrationForm(UserCreationForm):
-    """Custom registration form that works with our custom User model"""
+    """Custom registration form that works with our custom User model, including roles and email"""
+    
+    # Explicitly define email as required so validation handles blank inputs
+    email = forms.EmailField(required=True)
+    
+    # Capture role choices directly from the updated custom User model structure
+    role = forms.ChoiceField(
+        choices=User.Roles.choices, 
+        required=True
+    )
     
     class Meta:
         model = User
-        fields = ('username',)
+        # Include email and role in the fields sequence alongside username
+        fields = ('username', 'email', 'role')
     
     def save(self, commit=True):
         user = super().save(commit=False)
+        user.email = self.cleaned_data['email']
+        user.role = self.cleaned_data['role']
         if commit:
             user.save()
         return user
@@ -49,4 +61,3 @@ class ItemForm(forms.ModelForm):
         if price is not None and price > 1000000:
             raise ValidationError("Price cannot exceed 1,000,000.")
         return price
-
