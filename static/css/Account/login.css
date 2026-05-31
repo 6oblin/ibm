@@ -77,12 +77,6 @@ body {
     object-fit: cover;
 }
 
-h2 {
-    color: white;
-    text-shadow:
-        0 0 10px #00ffff,
-        0 0 20px #ff00ff;
-}
 
 form {
     width: 100%;
@@ -178,8 +172,10 @@ button:hover {
 }
 
 p {
-    align-self: flex-start;
     margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .link_class{
     color: #007BFF;

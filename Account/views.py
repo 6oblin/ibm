@@ -40,7 +40,7 @@ def register(request):
             message = f"Hi {user.username},\n\nThank you for registering. Your 6-digit verification code is:\n\n{generated_otp}\n\nPlease enter this code on the verification page to activate your profile."
             
             try:
-                send_mail(subject, message, None, [user.email], fail_silently=False)
+                send_mail(subject, message, "p2017832@gmail.com", [user.email], fail_silently=False)
                 # Keep username tracked in active session memory to secure target verification page
                 request.session['otp_username'] = user.username
                 messages.success(request, 'Registration successful! Please enter the 6-digit code sent to your email.')

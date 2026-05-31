@@ -1,18 +1,20 @@
-{% load static %} 
-<!DOCTYPE html> 
-<html> 
-    <head> 
-        <title>Register</title> 
-        <link rel="stylesheet" href="{%static 'css/Account/register.css' %}">
-        <link rel="icon" type="image/png" href="{% static 'image/logo/logo1.png' %}">
-    </head>
-<body> 
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{%static 'css/Account/register.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'image/logo/logo1.png' %}">
+</head>
+
+<body>
     <div class="page-container">
         <div class="image-container">
             {% load static %}
             <img src="{% static 'image/register/registerimg.png' %}" alt="Register Image">
         </div>
-        
+
         <div class="container">
             <h2>Register</h2>
 
@@ -58,10 +60,13 @@
                 </div>
 
                 <button type="submit">Register</button>
+                <div>
 
-                <p>Have an account? <a href="{% url 'login' %}">Login</a></p>
+                    <p>Have an account? <a href="{% url 'login' %}">Login</a></p>
+                </div>
             </form>
         </div>
     </div>
-    </body>
- </html>
+</body>
+
+</html>

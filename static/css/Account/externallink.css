@@ -15,10 +15,9 @@ body {
   font-family: "Times New Roman", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
-    background: linear-gradient(to right, #7CB9E8, #DCEAF5);
-  background-clip: text;              /* Standard property */
+  
+  background-clip: text; /* Standard property */
   padding-top: 80px; /* or equal to your header height + HR height */
-
 }
 
 /* =========================
@@ -29,29 +28,24 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 2%;
-  background: linear-gradient(
-    135deg,
-    #7CB9E8 0%,
-    #9FD5D1 50%,
-    #A8CFA8 100%
-  );
-  color: #FFFFFF;
-      position: fixed;          /* keeps it at the top while scrolling */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;            /* ensures it’s above all content */
+  color: #ffffff;
+  position: fixed; /* keeps it at the top while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* ensures it’s above all content */
 }
 
 .header__logo img {
   height: 50px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .header__logo img:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 8px #7CB9E8)
-          drop-shadow(0 0 12px #9FD5D1);
+  filter: drop-shadow(0 0 8px #7cb9e8) drop-shadow(0 0 12px #9fd5d1);
   cursor: pointer;
 }
 .header__nav {
@@ -61,7 +55,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: #2F4858;
+  color: #2f4858;
   font-size: 20px;
   letter-spacing: 1px;
   transition: 0.3s ease;
@@ -70,7 +64,7 @@ body {
 .nav-link:hover {
   text-decoration: line-through;
   opacity: 0.7;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* =========================
@@ -95,45 +89,39 @@ body {
   letter-spacing: 5px;
   font-size: 15px;
   margin-bottom: 10px;
-  color: #EAF4F8;
+  color: #eaf4f8;
   text-align: center;
 }
 
 .hero__title {
   font-size: 32px;
-  color: #FFFFFF;
+  color: #ffffff;
   letter-spacing: 7px;
   text-align: center;
   font-style: bold;
 }
 .hero__title :hover {
- background: linear-gradient(
-    to right,
-    #7CB9E8,
-    #9FD5D1,
-    #A8CFA8
-  );
+  background: linear-gradient(to right, #7cb9e8, #9fd5d1, #a8cfa8);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
-  opacity: 0.8 ;
-  font-style: italic ;
-  
+  opacity: 0.8;
+  font-style: italic;
 }
 
 .hero-brand {
-  color: #B8E0D2;
+  color: #b8e0d2;
 }
 
 .lead {
   max-width: 600px;
   margin: 15px auto 25px;
   font-size: 16px;
-  color: #F5FAFC;
+  color: #f5fafc;
   text-align: center;
-  font-style: italic ;
+  font-style: italic;
 }
 
 /* =========================
@@ -142,13 +130,9 @@ body {
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(
-    135deg,
-    #7CB9E8,
-    #9FD5D1
-  );
+  background: linear-gradient(135deg, #7cb9e8, #9fd5d1);
 
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 18px;
   font-style: italic;
   text-decoration: none;
@@ -156,21 +140,16 @@ body {
   transition: 0.3s ease;
   border-radius: 20px;
   position: absolute;
-  bottom: 5%;          /* space from bottom */
+  bottom: 5%; /* space from bottom */
   left: 50%;
-  transform: translateX(-50%);  /* center horizontally */
-
+  transform: translateX(-50%); /* center horizontally */
 }
 .btn1 {
   display: inline-block;
   padding: 12px 25px;
-  background: linear-gradient(
-    135deg,
-    #7CB9E8,
-    #9FD5D1
-  );
+  background: linear-gradient(135deg, #7cb9e8, #9fd5d1);
 
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 18px;
   font-style: italic;
   text-decoration: none;
@@ -178,30 +157,20 @@ body {
   transition: 0.3s ease;
   border-radius: 20px;
   position: absolute;
-  bottom: 5%;          /* space from bottom */
+  bottom: 5%; /* space from bottom */
   left: 50%;
-  transform: translateX(-50%);  /* center horizontally */
+  transform: translateX(-50%); /* center horizontally */
 }
-
 
 .btn:hover {
-  background: linear-gradient(
-    135deg,
-    #6AAED6,
-    #89C8C0
-  );
+  background: linear-gradient(135deg, #6aaed6, #89c8c0);
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .btn1:hover {
+  background: linear-gradient(135deg, #6aaed6, #89c8c0);
 
-  background: linear-gradient(
-    135deg,
-    #6AAED6,
-    #89C8C0
-  );
-
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* =========================
@@ -253,7 +222,6 @@ body {
   overflow: hidden;
   text-align: center;
   transition: 0.3s ease;
-  
 }
 
 .service img {
@@ -280,7 +248,7 @@ body {
   gap: 15px;
   justify-content: center;
   align-items: center;
-    text-align: center;
+  text-align: center;
 }
 
 .gallery-grid img {
@@ -350,9 +318,9 @@ footer {
    FORM STYLING
 ========================= */
 form {
-  display: flex;  
+  display: flex;
   flex-direction: column;
-    gap: 15px;
+  gap: 15px;
   width: 50%;
   max-width: 400px;
 }
@@ -375,31 +343,36 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border-color: #7CB9E8;
-  box-shadow: 0 0 5px rgba(124,185,232,0.4);
+  border-color: #7cb9e8;
+  box-shadow: 0 0 5px rgba(124, 185, 232, 0.4);
 }
 
-form img{
-    width: 50%;
+form img {
+  width: 50%;
 }
-.overlay{
+.overlay {
   background: rgba(95, 168, 168, 0.85);
   backdrop-filter: blur(10px);
-	padding:20px;
-	border-radius:30px;
-	width: 30%;
-  	position: absolute;
-  	bottom: 25%;
-  	left: 4%;
-  	width: 30%;
+  padding: 20px;
+  border-radius: 30px;
+  width: 30%;
+  position: absolute;
+  bottom: 25%;
+  left: 4%;
+  width: 30%;
 }
 .overlay:hover {
-    background: rgba(95, 168, 168, 0.85);
-    backdrop-filter: blur(15px);
-    cursor: pointer;
+  background: rgba(95, 168, 168, 0.85);
+  backdrop-filter: blur(15px);
+  cursor: pointer;
 
-    box-shadow: 0 0 30px rgba(95, 168, 168, 0.5);
-    transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(95, 168, 168, 0.5);
+  transform: scale(1.02);
 }
-    .hero__title{color:#fff;margin:0 0 8px}
-    .hero__tag{color:rgba(255,255,255,0.9)}
+.hero__title {
+  color: #fff;
+  margin: 0 0 8px;
+}
+.hero__tag {
+  color: rgba(255, 255, 255, 0.9);
+}

@@ -59,7 +59,7 @@ def add_outlet(request):
 
         if not name or not city:
             messages.error(request, "Outlet Name and City fields are required.")
-            return render(request, 'Outlets/add_outlet.html')
+            return render(request, 'Outlets/add_outlet.html')             
 
         # Save the outlet row linked to the owner's enterprise database index
         Outlet.objects.create(
@@ -73,4 +73,8 @@ def add_outlet(request):
         messages.success(request, f"Outlet '{name}' has been successfully registered under your company.")
         return redirect('business_dashboard')
 
+    if len(contact) != 10:
+        messages.error(request, "digits must be 10")
+        return render(request, 'Outlets/add_outlet.html')
+        
     return render(request, 'Outlets/add_outlet.html')
