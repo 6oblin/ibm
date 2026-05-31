@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Branch Operations Hub</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 40px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { margin: 0; color: #10b981; font-size: 26px; }
+        .branch-meta { color: #94a3b8; font-size: 14px; margin-top: 5px; }
+        .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; }
+        .card { background: #1e293b; padding: 25px; border-radius: 8px; border: 1px solid #334155; }
+        .card h2 { margin-top: 0; color: #f1f5f9; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+        .info-label { color: #94a3b8; }
+        .info-value { color: #f1f5f9; font-weight: 500; }
+        .badge { background: #10b981; color: #0f172a; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .messages { background: #ef4444; color: white; padding: 12px 20px; border-radius: 6px; margin-bottom: 25px; list-style: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="header">
+        <div>
+            <h1>{{ outlet.name }} — Branch Registry</h1>
+            <div class="branch-meta">Regional Hub Status Control Deck</div>
+        </div>
+        <a href="{% url 'logout' %}" style="color: #ef4444; text-decoration: none; font-size: 14px; font-weight: bold;">Sign Out</a>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h2>Local Branch Inventory</h2>
+            <div style="text-align: center; color: #64748b; padding: 40px 0;">
+                <p style="margin: 0; font-size: 16px;">Stock ledger system is currently idle.</p>
+                <p style="margin: 5px 0 0 0; font-size: 13px;">Inventory monitoring tables will sync once tracking units are assigned.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Branch Profiles</h2>
+            
+            <div class="info-row">
+                <span class="info-label">Assigned Location:</span>
+                <span class="info-value">{{ outlet.city }}</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Operational Status:</span>
+                <span class="badge">ACTIVE</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label">Contact Line:</span>
+                <span class="info-value">{% if outlet.contact_number %}{{ outlet.contact_number }}{% else %}None{% endif %}</span>
+            </div>
+
+            <div class="info-row" style="margin-top: 20px; border-top: 1px solid #334155; padding-top: 15px;">
+                <span class="info-label">Full Address:</span>
+            </div>
+            <p style="margin: 0; font-size: 13px; color: #cbd5e1; line-height: 1.5;">{{ outlet.address }}</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

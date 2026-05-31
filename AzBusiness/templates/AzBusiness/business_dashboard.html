@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Management Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 40px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { margin: 0; color: #38bdf8; font-size: 26px; }
+        .company-meta { color: #94a3b8; font-size: 14px; margin-top: 5px; }
+        .action-bar { margin-bottom: 30px; display: flex; justify-content: flex-end; }
+        .btn-action { background: #38bdf8; color: #0f172a; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
+        .btn-action:hover { background: #0ea5e9; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+        .stat-card { background: #1e293b; padding: 20px; border-radius: 8px; border: 1px solid #334155; }
+        .stat-card h3 { margin: 0 0 10px 0; color: #94a3b8; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card p { margin: 0; font-size: 24px; font-weight: bold; color: #f1f5f9; }
+        .data-table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; border: 1px solid #334155; }
+        .data-table th, .data-table td { padding: 14px 20px; text-align: left; }
+        .data-table th { background: #334155; color: #38bdf8; font-size: 13px; text-transform: uppercase; }
+        .data-table tr { border-bottom: 1px solid #334155; }
+        .data-table tr:last-child { border-bottom: none; }
+        .messages { background: #0284c7; color: white; padding: 12px 20px; border-radius: 6px; margin-bottom: 25px; list-style: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="header">
+        <div>
+            <h1>{{ business.company_name }} — Control Deck</h1>
+            <div class="company-meta">Corporate HQ Email: {{ business.business_email }} | Registry ID: {{ business.registration_number }}</div>
+        </div>
+        <a href="{% url 'logout' %}" style="color: #ef4444; text-decoration: none; font-size: 14px; font-weight: bold;">Sign Out</a>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Active Outlets</h3>
+            <p>{{ outlets.count }}</p>
+        </div>
+        <div class="stat-card">
+            <h3>Subscription Tier</h3>
+            <p style="color: #10b981;">Enterprise Pro</p>
+        </div>
+        <div class="stat-card">
+            <h3>Primary HQ Address</h3>
+            <p style="font-size: 16px; font-weight: normal; margin-top: 5px; color: #cbd5e1;">{{ business.address }}</p>
+        </div>
+    </div>
+
+    <div class="header" style="border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 20px;">
+        <h2 style="margin: 0; font-size: 20px; color: #f1f5f9;">Managed Physical Outlets</h2>
+<a href="{% url 'add_outlet' %}" class="btn-action">+ Provision New Outlet</a>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Outlet Name</th>
+                <th>City / Territory</th>
+                <th>Street Address</th>
+                <th>Contact Line</th>
+                <th>Date Managed Since</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for outlet in outlets %}
+            <tr>
+                <td><strong>{{ outlet.name }}</strong></td>
+                <td><span style="background: #334155; padding: 4px 8px; border-radius: 4px; font-size: 12px;">{{ outlet.city }}</span></td>
+                <td>{{ outlet.address }}</td>
+                <td>{% if outlet.contact_number %}{{ outlet.contact_number }}{% else %}<span style="color: #64748b;">N/A</span>{% endif %}</td>
+                <td>{{ outlet.created_at|date:"M d, Y" }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" style="text-align: center; color: #94a3b8; padding: 30px;">
+                    No local branch outlets have been linked under this enterprise registry yet. Click "+ Provision New Outlet" to get started.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Establish Business Profile</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #f1f5f9; padding: 40px; }
+        .setup-card { max-width: 550px; margin: 50px auto; background: #1e293b; padding: 35px; border-radius: 10px; border: 1px solid #334155; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+        h2 { margin-top: 0; color: #38bdf8; font-size: 24px; }
+        p.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 30px; line-height: 1.5; }
+        .form-group { margin-bottom: 22px; }
+        label { display: block; margin-bottom: 8px; color: #cbd5e1; font-size: 14px; font-weight: 500; }
+        input[type="text"], input[type="email"], textarea { width: 100%; padding: 11px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; box-sizing: border-box; font-size: 14px; }
+        input:focus, textarea:focus { border-color: #38bdf8; outline: none; }
+        .btn-submit { background: #38bdf8; color: #0f172a; padding: 12px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 15px; margin-top: 10px; }
+        .btn-submit:hover { background: #0ea5e9; }
+        .messages { background: #0284c7; color: white; padding: 12px 15px; border-radius: 6px; margin-bottom: 20px; list-style: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="setup-card">
+    <h2>Establish Your Enterprise Profile</h2>
+    <p class="subtitle">Welcome! Before accessing the control decks, you must register your primary corporate profile entity underneath your account ownership.</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="messages">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Company / Corporate Name</label>
+            <input type="text" name="company_name" required placeholder="e.g. Acme Tech Global">
+        </div>
+        
+        <div class="form-group">
+            <label>Official Business Email Address</label>
+            <input type="email" name="business_email" required placeholder="e.g. operations@company.com">
+        </div>
+        
+        <div class="form-group">
+            <label>Government Registration / Tax Number</label>
+            <input type="text" name="registration_number" required placeholder="e.g. REG-987654-XYZ">
+        </div>
+        
+        <div class="form-group">
+            <label>Headquarters Physical Address</label>
+            <textarea name="address" rows="3" required placeholder="e.g. New Baneshwor, Kathmandu, Nepal"></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit">Initialize Corporate Instance</button>
+    </form>
+</div>
+
+</body>
+</html>

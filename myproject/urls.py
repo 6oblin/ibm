@@ -25,6 +25,7 @@ urlpatterns = [
     
     # 🌟 Securely routing the AzBusiness application paths
     path('', include('AzBusiness.urls')),
+    path('outlets/', include('Outlets.urls')),
 ]
 
 if settings.DEBUG:

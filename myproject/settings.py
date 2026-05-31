@@ -26,6 +26,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'Account',
     'AzBusiness',
+    'Outlets',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,6 +58,8 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'Account' / 'templates',
             BASE_DIR / 'Account' / 'templates' / 'Account',  # Failsafe path binding
+            BASE_DIR / 'Outlets' / 'templates',
+            BASE_DIR / 'AzBusiness' / 'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

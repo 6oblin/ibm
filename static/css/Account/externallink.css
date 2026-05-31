@@ -15,9 +15,9 @@ body {
   font-family: "Times New Roman", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: linear-gradient(to right, #877558, #f1c899);
+    background: linear-gradient(to right, #7CB9E8, #DCEAF5);
   background-clip: text;              /* Standard property */
-      padding-top: 80px; /* or equal to your header height + HR height */
+  padding-top: 80px; /* or equal to your header height + HR height */
 
 }
 
@@ -29,8 +29,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 2%;
-  background: #4A4033;
-  color: beige;
+  background: linear-gradient(
+    135deg,
+    #7CB9E8 0%,
+    #9FD5D1 50%,
+    #A8CFA8 100%
+  );
+  color: #FFFFFF;
       position: fixed;          /* keeps it at the top while scrolling */
     top: 0;
     left: 0;
@@ -45,7 +50,8 @@ body {
 
 .header__logo img:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 8px #4A90E2) drop-shadow(0 0 12px #4A90E2);
+  filter: drop-shadow(0 0 8px #7CB9E8)
+          drop-shadow(0 0 12px #9FD5D1);
   cursor: pointer;
 }
 .header__nav {
@@ -55,7 +61,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: #2F4858;
   font-size: 20px;
   letter-spacing: 1px;
   transition: 0.3s ease;
@@ -64,7 +70,7 @@ body {
 .nav-link:hover {
   text-decoration: line-through;
   opacity: 0.7;
-  color: beige;
+  color: #FFFFFF;
 }
 
 /* =========================
@@ -89,22 +95,27 @@ body {
   letter-spacing: 5px;
   font-size: 15px;
   margin-bottom: 10px;
-  color:#C3B59B;
+  color: #EAF4F8;
   text-align: center;
 }
 
 .hero__title {
   font-size: 32px;
-  color:#C3B59B;
+  color: #FFFFFF;
   letter-spacing: 7px;
   text-align: center;
   font-style: bold;
 }
 .hero__title :hover {
-  background: linear-gradient(to right, #877558, #f1c899);
-  background-clip: text;              /* Standard property */
-  -webkit-background-clip: text;      /* Chrome/Safari */
-  color: transparent;                 /* Standard way */
+ background: linear-gradient(
+    to right,
+    #7CB9E8,
+    #9FD5D1,
+    #A8CFA8
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
   opacity: 0.8 ;
@@ -113,14 +124,14 @@ body {
 }
 
 .hero-brand {
-  color:#e7c899;
+  color: #B8E0D2;
 }
 
 .lead {
   max-width: 600px;
   margin: 15px auto 25px;
   font-size: 16px;
-  color: #C3B59B;
+  color: #F5FAFC;
   text-align: center;
   font-style: italic ;
 }
@@ -131,8 +142,13 @@ body {
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: #C3B59B;
-  color: #E0D8CC;
+  background: linear-gradient(
+    135deg,
+    #7CB9E8,
+    #9FD5D1
+  );
+
+  color: #FFFFFF;
   font-size: 18px;
   font-style: italic;
   text-decoration: none;
@@ -148,8 +164,13 @@ body {
 .btn1 {
   display: inline-block;
   padding: 12px 25px;
-  background: #C3B59B;
-  color: #E0D8CC;
+  background: linear-gradient(
+    135deg,
+    #7CB9E8,
+    #9FD5D1
+  );
+
+  color: #FFFFFF;
   font-size: 18px;
   font-style: italic;
   text-decoration: none;
@@ -164,11 +185,23 @@ body {
 
 
 .btn:hover {
-  color: black;
+  background: linear-gradient(
+    135deg,
+    #6AAED6,
+    #89C8C0
+  );
+
+  color: #FFFFFF;
 }
 .btn1:hover {
 
-  color: black;
+  background: linear-gradient(
+    135deg,
+    #6AAED6,
+    #89C8C0
+  );
+
+  color: #FFFFFF;
 }
 
 /* =========================
@@ -342,21 +375,31 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border-color: #d4af37;
-  box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+  border-color: #7CB9E8;
+  box-shadow: 0 0 5px rgba(124,185,232,0.4);
 }
+
 form img{
     width: 50%;
 }
 .overlay{
-	background-color: #4A4033;
+  background: rgba(95, 168, 168, 0.85);
+  backdrop-filter: blur(10px);
 	padding:20px;
-	border-radius:40px;
+	border-radius:30px;
 	width: 30%;
   	position: absolute;
-  	bottom: 15%;
-  	left: 1%;
+  	bottom: 25%;
+  	left: 4%;
   	width: 30%;
+}
+.overlay:hover {
+    background: rgba(95, 168, 168, 0.85);
+    backdrop-filter: blur(15px);
+    cursor: pointer;
+
+    box-shadow: 0 0 30px rgba(95, 168, 168, 0.5);
+    transform: scale(1.02);
 }
     .hero__title{color:#fff;margin:0 0 8px}
     .hero__tag{color:rgba(255,255,255,0.9)}

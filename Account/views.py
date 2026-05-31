@@ -107,7 +107,27 @@ def login_view(request):
                 
             login(request, user)
             messages.success(request, f'Welcome back, {username}!')
-            return redirect('dashboard')
+            
+            # 🌟 SYSTEM DASHBOARD ROUTING MATRIX
+            if user.is_superuser or user.is_staff:
+                return redirect('admin_dashboard')  # System Admins go to global monitor view
+                
+            # Clean string matching check to capture user roles safely
+            user_role = getattr(user, 'role', '').upper()
+            
+            if user_role == 'OWNER':
+                return redirect('business_dashboard')  # Business Owners go to AzBusiness app
+                
+            elif user_role == 'MANAGER':
+                return redirect('manager_dashboard')   # Branch Managers
+                
+            elif user_role == 'EMPLOYEE':
+                return redirect('dashboard')  # Frontline Staff
+                
+            elif user_role == 'CUSTOMER':
+                return redirect('customer_portal')     # Consumer Facing Interface
+                
+            return redirect('dashboard')  # Standard inventory panel fallback for regular users
         else:
             messages.error(request, 'Invalid username or password.')
 
@@ -119,6 +139,26 @@ def dashboard(request):
     items = Item.objects.filter(user=request.user)
     grand_total = sum(item.quantity * item.price for item in items)
     return render(request, 'Account/dashboard.html', {'items': items, 'grand_total': grand_total})
+
+
+# --- New Role-Specific Dashboard Placeholders ---
+
+@login_required(login_url='login')
+def manager_dashboard(request):
+    """Control view for Outlet Managers"""
+    return render(request, 'Account/manager_dashboard.html')
+
+
+@login_required(login_url='login')
+def employee_dashboard(request):
+    """Logging dashboard for staff members"""
+    return render(request, 'Account/dashboard.html')
+
+
+@login_required(login_url='login')
+def customer_portal(request):
+    """Storefront or purchase history portal for clients"""
+    return render(request, 'Account/customer_portal.html')
 
 
 def logout_view(request):

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Provision New Outlet Branch</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0f172a; color: #f1f5f9; padding: 40px; margin: 0; }
+        .form-card { max-width: 500px; margin: 60px auto; background: #1e293b; padding: 35px; border-radius: 10px; border: 1px solid #334155; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+        h2 { margin-top: 0; color: #10b981; font-size: 24px; } /* Updated color palette accent to match Outlets theme */
+        p.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 25px; line-height: 1.5; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #cbd5e1; font-size: 14px; font-weight: 500; }
+        input[type="text"], textarea { width: 100%; padding: 11px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; box-sizing: border-box; font-size: 14px; }
+        input:focus, textarea:focus { border-color: #10b981; outline: none; }
+        .btn-submit { background: #10b981; color: #0f172a; padding: 12px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 15px; margin-top: 10px; }
+        .btn-submit:hover { background: #059669; }
+        .back-link { display: inline-block; margin-top: 20px; color: #94a3b8; text-decoration: none; font-size: 14px; }
+        .back-link:hover { color: #10b981; }
+        .error-box { background: #ef4444; color: white; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-size: 14px; list-style: none; }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h2>Register New Outlet</h2>
+    <p class="subtitle">Add a new physical storefront, local branch, or storage depot under your business registry management umbrella.</p>
+
+    {% if messages %}
+        <ul class="error-box">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Outlet / Store Name *</label>
+            <input type="text" name="outlet_name" required placeholder="e.g. Kathmandu Core Hub">
+        </div>
+        
+        <div class="form-group">
+            <label>City / Region *</label>
+            <input type="text" name="city" required placeholder="e.g. Lalitpur">
+        </div>
+        
+        <div class="form-group">
+            <label>Full Physical Address</label>
+            <textarea name="address" rows="3" placeholder="e.g. New Baneshwor, Ward No. 10"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Contact Phone Number</label>
+            <input type="text" name="contact_number" placeholder="e.g. +977-98XXXXXXXX">
+        </div>
+        
+        <button type="submit" class="btn-submit">Provision Outlet Location</button>
+    </form>
+    
+    <a href="{% url 'business_dashboard' %}" class="back-link">← Cancel and Return to Dashboard</a>
+</div>
+
+</body>
+</html>
